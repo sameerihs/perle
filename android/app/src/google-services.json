@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "276917138800",
+    "project_id": "perle-bc414",
+    "storage_bucket": "perle-bc414.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276917138800:android:f2b5e92ed8dbe958090bb5",
+        "android_client_info": {
+          "package_name": "com.flyinLemon03.perle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276917138800-e6tjjvdbdalgjo40ri452ir2do8b0bhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtEj9-OC0-pHs6Ac6V5psFxfpwwzCPokM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276917138800-e6tjjvdbdalgjo40ri452ir2do8b0bhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
