@@ -17,6 +17,14 @@ Current prototype features include:
 - Local, session-only Likes shared across every screen
 - Pexels API quota tracking from response headers
 
+## Screenshots
+
+| Explore | Search | Photo details |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/explore.png" alt="Perle Explore screen showing the curated Pexels feed" width="260"> | <img src="docs/screenshots/search.png" alt="Perle Search screen showing filtered mountain results" width="260"> | <img src="docs/screenshots/photo-detail.png" alt="Perle full-screen photo details with photographer attribution" width="260"> |
+
+Captured from the iPhone 17 Pro simulator.
+
 ## Project status
 
 - The legacy Firebase and authentication flows have been removed completely.
