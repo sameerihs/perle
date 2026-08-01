@@ -1,12 +1,73 @@
-# perle
+# Perle
 
-A Minimalistic wallpaper app
+Perle is a minimal Flutter wallpaper browser powered by the Pexels API.
 
-//
-<img width="243" alt="vlc_5qBs3QXX93" src="https://user-images.githubusercontent.com/75799201/221224244-aa297c20-9aac-421e-8685-c1aa2144f7bd.png">
-<img width="243" alt="vlc_5qBs3QXX93" src="https://user-images.githubusercontent.com/75799201/221224432-58ddf0b2-d661-4d01-ade0-8d018e2dc316.png">
-</br>
-<img width="243" alt="vlc_oeCR8OPnQZ" src="https://user-images.githubusercontent.com/75799201/221224607-ae57853d-8d32-4507-a022-b68f324ffeee.png">
-<img width="243" alt="vlc_J0IIB6Idu1" src="https://user-images.githubusercontent.com/75799201/221224667-12a21561-9523-4c46-8e2b-e127989eda2b.png">
-</br>
-<img width="243" alt="vlc_acoXEmKu5u" src="https://user-images.githubusercontent.com/75799201/221224723-040a6bb6-c805-439a-9454-b07798696ba6.png">
+The app opens directly on the Explore screen. It has no account, authentication,
+Firebase, or logout flow. Explore, Search, and Likes share one small controller,
+and all remote loading has explicit progress, empty, error, and retry states.
+
+Current prototype features include:
+
+- Pexels' live curated photo feed
+- Paginated Explore and Search results with ID-based deduplication
+- Orientation, minimum-size, and color search filters
+- Dominant-color loading placeholders
+- Full-screen zoomable photo details
+- Photographer attribution and links back to Pexels
+- Local, session-only Likes shared across every screen
+- Pexels API quota tracking from response headers
+
+## Project status
+
+- The legacy Firebase and authentication flows have been removed completely.
+- A fresh launch opens directly on Explore and loads the live curated feed.
+- iOS 13 is the minimum deployment target; URL launching is integrated through
+  Flutter's generated Swift Package Manager package.
+- The current build was verified on an iPhone 17 Pro simulator running iOS 26.5.
+- `flutter analyze` is clean, all 31 tests pass, and the unsigned iOS Simulator
+  build succeeds with the local API configuration.
+- Firebase wiring has also been removed from Android, but the legacy Android
+  Gradle toolchain has not yet been modernized or tested with the current Flutter
+  SDK.
+
+## Run locally
+
+Copy the local configuration template and add a Pexels API key:
+
+```sh
+cp dart_defines.example.json dart_defines.json
+# Edit dart_defines.json, then:
+flutter pub get
+flutter run --dart-define-from-file=dart_defines.json
+```
+
+`dart_defines.json` is ignored by Git.
+
+To choose a particular iOS simulator:
+
+```sh
+flutter devices
+flutter run -d <simulator-id> \
+  --dart-define-from-file=dart_defines.json
+```
+
+The API key that used to be committed in the Dart source should be considered
+exposed and rotated. `dart-define` keeps it out of this repository, but a key
+embedded in a distributed client app is still discoverable; use a small backend
+proxy if the key must be kept secret in production.
+
+## Verify changes
+
+```sh
+flutter analyze
+flutter test
+flutter build ios --simulator \
+  --dart-define-from-file=dart_defines.json
+```
+
+## Pexels usage notice
+
+[Pexels' current API guidelines](https://www.pexels.com/api/documentation/)
+explicitly disallow using its content to create a wallpaper app. This repository
+uses the integration only as a private learning prototype. Replace the provider
+or obtain written permission before publishing or distributing it.

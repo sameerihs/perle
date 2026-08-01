@@ -31,6 +31,9 @@
 .pub/
 /build/
 
+# Local compile-time configuration (contains API credentials)
+/dart_defines.json
+
 # Web related
 lib/generated_plugin_registrant.dart
 
